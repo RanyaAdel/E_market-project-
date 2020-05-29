@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Emarketproject1.Models.Product>
+
+@{
+    ViewBag.Title = "HomePage";
+}
+
+
+
+<link href="~/Content/Style.css" rel="stylesheet" />
+<link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+
+
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="~/Images/@Html.Encode(item.image)" style=" width: 245px;height: 220px;" />
+
+                    <div class="caption">
+                        <h3>@item.name</h3>
+                        <p>@item.description</p>
+                        <p>@item.price</p>
+                        @Html.ActionLink("Delete", "Delete", "Home", new { id = item.Id }, new { @class = "btn btn-success" })
+                        |
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        }
+   
+    
+
+
+
+
+
+
